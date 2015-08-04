@@ -1,0 +1,63 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+</div>
+{% if error %}
+    <div>{{ error|trans }}</div>
+{% endif %}
+</div>
+
+
+
+<table width=1500>
+<tr>
+<br>
+<br>
+  <td> </td>
+<td width=200>
+
+  </td>
+
+  <td width=1000>
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+<div class="row" >
+
+          <div class="col-lg-6" >
+            <div class="well" >
+              <form class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>Connect</legend>  <div class="form-group">
+
+
+    <label for="username">{{ 'username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required " class="form-control" id="username" placeholder="Login"/>
+    <!--<input type="text" class="form-control" id="username" placeholder="Login">-->
+     
+
+    <label for="password">{{ 'password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" class="form-control" id="password" placeholder="Password" />
+   <!-- <input type="password" class="form-control" id="password" placeholder="Password">-->
+
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'remember_me'|trans }}</label>
+
+                          
+                          <!-- <font color=blue Garder ma session active  /font>-->
+                       
+      <br>
+    <input type="submit" id="_submit" class="btn btn-primary" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <a href="{{ path("fos_user_resetting_request") }}">Mot de passe oblié ?</a>
+</div>
+</div>
+</div>
+</form>    
+  </td>
+</tr>
+</table>
+
+
+{% endblock fos_user_content %}

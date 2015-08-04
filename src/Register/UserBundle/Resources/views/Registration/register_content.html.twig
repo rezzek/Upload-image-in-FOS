@@ -1,0 +1,40 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block content %}
+</div>
+ </div>
+ <br>
+ <br>
+ <br>
+
+ <table width=1500>
+<tr>
+<br>
+<br>
+  <td></td>
+<td width=200>
+
+  </td>
+  <td width=1000>
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+
+<div class="row" >
+
+          <div class="col-lg-6" >
+            <div class="well" >
+              <form class="bs-example form-horizontal">
+                <fieldset>
+                  <legend>Register</legend>  <div class="form-group">
+    {{ form_widget(form) }}
+    <div>
+     <br>
+        <input type="submit" class="btn btn-primary" value="{{ 'registration.submit'|trans }}" />
+    </div>
+    </fieldset>
+</div>
+</div>
+</div>
+</form>
+ </td>
+</tr>
+</table>
+{% endblock %}
